@@ -1,0 +1,12 @@
+<h2>
+Музыкант
+</h2>
+
+<ul class="heroes">
+  <li *ngFor="let musician of musicians">
+    <button type="button">
+      <span class="badge">{{musician.id}}</span>
+      <span class="name">{{musician.name}}</span>
+    </button>
+  </li>
+</ul>
