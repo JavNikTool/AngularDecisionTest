@@ -1,15 +1,24 @@
-<h2>
-Музыканты
-</h2>
+<div class="flex">
 
-<ul class="musicians">
-  <li *ngFor="let musician of musicians" >
-    <button [class.selected]="musician === SelectedMusicians" type="button" [title]="musician.description" (click)="onSelected(musician)">
-      <span class="badge">{{musician.id}}</span>
-      <span class="name">{{musician.name}}</span>
-    </button>
-  </li>
-</ul>
+  <div style="display: inline-block">
+    <h2>
+      Музыканты
+    </h2>
 
-<app-musican-detail [musican]="SelectedMusicians"></app-musican-detail>
+    <ul class="musicians">
+      <li *ngFor="let musician of musicians" >
+        <button [class.selected]="musician === SelectedMusicians" type="button" [title]="musician.description" (click)="onSelected(musician)">
+          <span class="badge">{{musician.id}}</span>
+          <span class="name">{{musician.name}}</span>
+        </button>
+      </li>
+    </ul>
+  </div>
+
+
+  <div style="display: inline-block">
+    <app-musican-detail [musican]="SelectedMusicians"></app-musican-detail>
+  </div>
+
+</div>
 

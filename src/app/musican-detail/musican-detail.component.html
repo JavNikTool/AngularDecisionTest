@@ -6,6 +6,8 @@
     <input id="musician-name" [(ngModel)]="musican.name">
   </div>
   <div class="wrap">
-    <img [src]="musican.path">
+    <label for="photo-src">Изменить фотографию: </label>
+    <input id="photo-src" [(ngModel)]="musican.path">
+    <img alt="{{musican.name}}" [src]="musican.path">
   </div>
 </div>
