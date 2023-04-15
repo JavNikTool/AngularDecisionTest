@@ -1,0 +1,20 @@
+
+.SelectedMusican .wrap {
+  margin-top: 20px;
+  width: 500px;
+  height: 550px;
+}
+.SelectedMusican .wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.SelectedMusican .id {
+  margin-top:5px;
+  font-size: 18px;
+}
+
+.SelectedMusican #musician-name{
+  padding: 5px;
+}

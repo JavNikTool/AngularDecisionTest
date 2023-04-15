@@ -1,0 +1,11 @@
+<div *ngIf="musican" class="SelectedMusican">
+  <h2>{{musican.name | uppercase}}</h2>
+  <div class="id">id: {{musican.id}}</div>
+  <div>
+    <label for="musician-name">Имя музыканта: </label>
+    <input id="musician-name" [(ngModel)]="musican.name">
+  </div>
+  <div class="wrap">
+    <img [src]="musican.path">
+  </div>
+</div>

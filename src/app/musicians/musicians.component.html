@@ -1,12 +1,15 @@
 <h2>
-Музыкант
+Музыканты
 </h2>
 
-<ul class="heroes">
-  <li *ngFor="let musician of musicians">
-    <button type="button">
+<ul class="musicians">
+  <li *ngFor="let musician of musicians" >
+    <button [class.selected]="musician === SelectedMusicians" type="button" [title]="musician.description" (click)="onSelected(musician)">
       <span class="badge">{{musician.id}}</span>
       <span class="name">{{musician.name}}</span>
     </button>
   </li>
 </ul>
+
+<app-musican-detail [musican]="SelectedMusicians"></app-musican-detail>
+
