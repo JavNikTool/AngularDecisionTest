@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IMusican } from "../musican";
 import { MusicanService } from "../musican.service";
 
@@ -7,11 +7,10 @@ import { MusicanService } from "../musican.service";
   templateUrl: './musicians.component.html',
   styleUrls: ['./musicians.component.css']
 })
-export class MusiciansComponent {
+export class MusiciansComponent implements OnInit{
   musicians: IMusican[] = [];
 
-  constructor(private musicanService: MusicanService) {
-  }
+  constructor(private musicanService: MusicanService) { }
 
   getMusicans():void{
     this.musicanService.getMusicans()
@@ -22,8 +21,4 @@ export class MusiciansComponent {
     this.getMusicans();
   }
 
-  SelectedMusicians?: IMusican;
-  onSelected(musican: IMusican):void{
-    this.SelectedMusicians = musican;
-  }
 }

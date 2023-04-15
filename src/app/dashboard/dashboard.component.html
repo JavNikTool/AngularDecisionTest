@@ -1,0 +1,6 @@
+<h2>Топ музыкантов</h2>
+<div class="musicians-menu">
+  <a *ngFor="let musican of musicians" routerLink="/detail/{{musican.id}}">
+    {{musican.name}}
+  </a>
+</div>

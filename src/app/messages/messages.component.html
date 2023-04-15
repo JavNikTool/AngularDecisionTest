@@ -1,1 +1,8 @@
-<p>messages works!</p>
+<div *ngIf="messageService.messages.length">
+
+  <h2>История</h2>
+  <button type="button" class="clear"
+          (click)="messageService.clear()">Очистить историю</button>
+  <div *ngFor='let message of messageService.messages'> {{message}} </div>
+
+</div>

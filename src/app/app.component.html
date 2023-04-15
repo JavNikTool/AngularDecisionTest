@@ -1,6 +1,9 @@
-<h1>{{title}}</h1>
+<a routerLink="/" class="title"><h1>{{title}}</h1></a>
 
-<div>
-  <app-musicians></app-musicians>
-  <app-messages></app-messages>
-</div>
+<nav>
+  <a routerLink="/musicians">Музыканты</a>
+  <a routerLink="/dashboard">Избранное</a>
+</nav>
+
+<router-outlet></router-outlet>
+<app-messages></app-messages>

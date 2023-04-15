@@ -1,24 +1,14 @@
-<div class="flex">
+<h2>
+  Музыканты
+</h2>
 
-  <div style="display: inline-block">
-    <h2>
-      Музыканты
-    </h2>
+<ul class="musicians">
+  <li *ngFor="let musician of musicians">
+    <a routerLink="/detail/{{musician.id}}">
+      <span class="badge">{{musician.id}}</span>
+      <span class="name">{{musician.name}}</span>
+    </a>
+  </li>
+</ul>
 
-    <ul class="musicians">
-      <li *ngFor="let musician of musicians" >
-        <button [class.selected]="musician === SelectedMusicians" type="button" [title]="musician.description" (click)="onSelected(musician)">
-          <span class="badge">{{musician.id}}</span>
-          <span class="name">{{musician.name}}</span>
-        </button>
-      </li>
-    </ul>
-  </div>
-
-
-  <div style="display: inline-block">
-    <app-musican-detail [musican]="SelectedMusicians"></app-musican-detail>
-  </div>
-
-</div>
 
