@@ -3,7 +3,7 @@
 </h2>
 
 <ul class="musicians">
-  <li *ngFor="let musician of musicians">
+  <li [title]="musician.description" *ngFor="let musician of musicians">
     <a routerLink="/detail/{{musician.id}}">
       <span class="badge">{{musician.id}}</span>
       <span class="name">{{musician.name}}</span>
