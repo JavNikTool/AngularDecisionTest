@@ -11,7 +11,6 @@ import { MusicanService } from "../musican.service";
 })
 export class MusicanDetailComponent {
   @Input() musican?: IMusican;
-
   constructor(
     private route: ActivatedRoute,
     private musicanService: MusicanService,
@@ -23,11 +22,13 @@ export class MusicanDetailComponent {
   }
   getMusican(): void{
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.musicanService.getMusican(id)
-      .subscribe(musican => this.musican = musican)
+    let a = this.musicanService.getMusican(id)
+      .subscribe(musican => this.musican = {...musican})
+    console.log(a)
   }
 
   goBack(): void{
     this.location.back();
   }
+
 }

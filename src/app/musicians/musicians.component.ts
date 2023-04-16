@@ -14,7 +14,7 @@ export class MusiciansComponent implements OnInit{
 
   getMusicans():void{
     this.musicanService.getMusicans()
-      .subscribe(musicans => this.musicians = musicans);
+      .subscribe(musicans => this.musicians = musicans)
   }
 
   ngOnInit(): void{

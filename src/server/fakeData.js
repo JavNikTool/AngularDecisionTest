@@ -11,4 +11,5 @@ let data = [
   {id: 8, name: 'Лиам Галлахер', description: 'Oasis', path: '/assets/img/musican/Liam.jpg'},
 ];
 
+
 export default data;

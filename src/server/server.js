@@ -3,9 +3,11 @@ import router from "./routers.js";
 const app = express();
 
 
-app.use(express.static('/'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 /*app.use(express.json())*/
 app.use('/api', router);
+
 
 
 const port = process.env.PORT || 4300;

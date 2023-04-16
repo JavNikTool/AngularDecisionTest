@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
+import { catchError, tap } from 'rxjs/operators';
 import { IMusican } from "./musican";
-import { MUSICAN } from "./mosc-musican";
 import { Observable, of } from "rxjs";
 import { MessageService } from "./message.service";
 
@@ -10,14 +10,34 @@ import { MessageService } from "./message.service";
 })
 export class MusicanService {
   private musicanUrl = 'api/get'
+  private log(message: string) {
+    this.messageService.add(`MusicanService: ${message}`);
+  }
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+    console.error(error);
+    this.log(`${operation} failed: ${error.message}`);
+      return of(result as T);
+    };
+  }
+
+
   getMusicans(): Observable<IMusican[]>{
     return this.http.get<IMusican[]>(this.musicanUrl)
+      .pipe(
+        tap(_ => this.log('выбираем музыкантов')),
+        catchError(this.handleError<IMusican[]>('getMusicans', []))
+      );
 }
   getMusican(id: number): Observable<IMusican>{
-    const musican = MUSICAN.find(h => h.id === id)!;
-    this.messageService.add(`HeroService: Найден музыкант ${musican.name}, id=${id}`);
-    return of(musican);
+    const url = `${this.musicanUrl}/${id}`;
+    return this.http.get<IMusican>(url).pipe(
+      tap(_ => this.log(`fetched hero id=${id}`)),
+      catchError(this.handleError<IMusican>(`getHero id=${id}`))
+    );
   }
+
+
   constructor(
     private messageService: MessageService,
     private http: HttpClient
